@@ -1,6 +1,6 @@
 {
-    "name": "volojs_create-responsive-template",
-    "version": "0.0.0",
+    "name": "notatestuser_create-responsive-flight-template",
+    "version": "0.1.0",
     "scripts": {
         "start": "node app"
     },

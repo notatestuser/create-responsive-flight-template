@@ -142,7 +142,7 @@ module.exports = {
             v.command('add', 'jquery/jquery/~1.9.0', 'jquery')
                 .then(function () {
                     //Grab es5-shim
-                    return v.command('add', 'kriskowal/es5-shim/~2.0.8', 'jquery');
+                    return v.command('add', 'kriskowal/es5-shim/~2.0.0', 'jquery');
                 })
                 .then(function () {
                     //Grab Twitter Bootstrap
@@ -154,7 +154,7 @@ module.exports = {
                 })
                 .then(function () {
                     var promises = [],
-                        promiseToAmdify = function(libName, path, regExpInclude, regExpExclude) {
+                        promiseToCopyLib = function(libName, path, regExpInclude, regExpExclude, doAmdify) {
                             //Move the JS to the right location.
                             var jsFiles = v.getFilteredFileList(path, regExpInclude, regExpExclude),
                                 jsNameRegExp = /(\/|[a-z]+\-)(\w*)\.js$/;
@@ -172,21 +172,22 @@ module.exports = {
 
                                 name = jsNameRegExp.exec(file)[2];
                                 destName = 'www/js/lib/' + libName + '/' + name + '.js';
-                                damd = q.defer();
 
                                 v.copyFile(file, destName);
 
-                                //Convert the file to AMD style
-                                amdify.run.apply(amdify, [damd, v, {
-                                    depends: 'jquery,es5-shim'
-                                }, destName]);
-
-                                promises.push(damd);
+                                if (true === doAmdify) {
+                                    //Convert the file to AMD style
+                                    damd = q.defer();
+                                    amdify.run.apply(amdify, [damd = q.defer(), v, {
+                                        depends: 'jquery'
+                                    }, destName]);
+                                    promises.push(damd);
+                                }
                             });
                         }
 
-                    promiseToAmdify('bootstrap', tempNames.bootstrap + '/js',  /\.js$/, /js[\/\\]tests[\/\\]/);
-                    promiseToAmdify('flight',    tempNames.flight    + '/lib', /\.js$/);
+                    promiseToCopyLib('bootstrap', tempNames.bootstrap + '/js',  /\.js$/, /js[\/\\]tests[\/\\]/, true);
+                    promiseToCopyLib('flight',    tempNames.flight    + '/lib', /\.js$/);
 
                     //Wait for all the amdify calls to finish.
                     return q.all(promises);

@@ -186,8 +186,9 @@ module.exports = {
                             });
                         }
 
-                    promiseToCopyLib('bootstrap', tempNames.bootstrap + '/js',  /\.js$/, /js[\/\\]tests[\/\\]/, true);
-                    promiseToCopyLib('flight',    tempNames.flight    + '/lib', /\.js$/);
+                    promiseToCopyLib('bootstrap',          tempNames.bootstrap + '/js',  /\.js$/, /js[\/\\]tests[\/\\]/, true);
+                    promiseToCopyLib('flight/lib',         tempNames.flight    + '/lib', /\.js$/);
+                    promiseToCopyLib('flight/tools/debug', tempNames.flight    + '/tools', /\.js$/);
 
                     //Wait for all the amdify calls to finish.
                     return q.all(promises);

@@ -209,5 +209,14 @@ module.exports = {
                 })
                 .then(d.resolve, d.reject);
         }
+    },
+
+    serve: {
+        summary: 'runs a local development server',
+        run: function (d, v, namedArgs) {
+            d.resolve(v.spawn('node', ['app.js'], {
+                useConsole: true
+            }));
+        }
     }
 };

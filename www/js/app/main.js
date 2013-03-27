@@ -18,15 +18,6 @@ define(
         buttonName: 'me'
       });
 
-      // Enable the UI bindings for the network and appCache displays
-      require(['app/uiNetwork', 'app/uiAppCache', 'app/uiWebAppInstall'],
-        function(uiNetwork, uiAppCache, uiWebAppInstall) {
-          uiNetwork();
-          uiAppCache();
-          uiWebAppInstall();
-        }
-      );
-
     });
   }
 );

@@ -1,20 +1,14 @@
-# Responsive+AppCache+Network
+# Responsive+Flight+AppCache
 
-It can be challenging to set up a good looking web project whose layout responds
-well to different screen resolutions and work well in mobile and offline
-environments.
+If you're looking to take Flight out for a test run, this template will allow you to get up-and-running in seconds. It's especially useful for AppCache applications that work on multiple devices, which is where this particular stack should shine. It's also good for a plain ole web apps.
 
-This project template sets up a responsive webapp that uses
-[Twitter Bootstrap](http://twitter.github.com/bootstrap/) along with
-[AppCache](https://developer.mozilla.org/en/Using_Application_Cache) and
-[network events](https://developer.mozilla.org/en/DOM/window.navigator.onLine).
+This project template sets up a responsive webapp that uses Twitter's
+[Bootstrap](http://twitter.github.com/bootstrap) and
+[Flight](http://twitter.github.com/flight).
 
-This makes it easy to set up web apps that are mobile-ready and can
-be used as [Mozilla Web Apps](https://developer.mozilla.org/en-US/apps)
-or [Chrome Store Apps](https://chrome.google.com/webstore/category/home).
-
-Since the goal of the project is to target more modern browsers with AppCache
-support, older browsers like IE 6-9 are not supported.
+These libraries are not bundled, but will be downloaded and AMDified when you first
+create a project. [RequireJS](http://requirejs.org) is used to manage client-side
+library dependencies.
 
 ## Usage
 
@@ -29,7 +23,7 @@ To install volo:
 
 Then:
 
-    > volo create myproject volojs/create-responsive-template
+    > volo create myproject volojs/create-responsive-flight-template
     > cd myproject
     > ../volo appcache
 
@@ -41,11 +35,12 @@ browser.
 
 The built, AppCache-enabled project will be in `myproject/www-built`.
 
-## What Happened
+### What Happened
 
 volo grabbed this project template from GitHub, then:
 
 * Fetched Twitter Bootstrap code from GitHub
+* Fetched Twitter Flight code from GitHub
 * Fetched jQuery
 
 It generated the responsive CSS files from Bootstrap's LESS files, and then
@@ -56,6 +51,16 @@ modular code that is easy to debug. When `volo appcache` is run, it builds all
 the JS into one file and removes the use of RequireJS. Additionally, it
 optimizes the CSS files by combining them into one file. Then it generates the
 AppCache application manifest.
+
+### Running the development server
+
+There is a built-in development server included to allow you to get up-and-running
+extremely quickly. Any LESS stylesheets will be compiled on-the-fly and reflected
+immediately in a browser with a live-reload plugin.
+
+To start the server, run this in your project folder:
+
+    > volo serve
 
 ## Deploy to GitHub Pages
 
@@ -133,8 +138,12 @@ browser to see changes. If you need some script dependencies, you can fetch them
 with `volo add`. To get the modular versions of Underscore and
 Backbone, run these commands in the `myproject` directory:
 
-    volo add amdjs/underscore
-    volo add amdjs/backbone
+    > volo add amdjs/underscore
+    > volo add amdjs/backbone
+
+Again, running the development server is as easy as:
+
+    > volo serve
 
 ## Project Layout
 
@@ -182,6 +191,7 @@ for the built files and modify the built `index.html` to reference it.
 
 * [HTML5 Rocks - Working Off the Grid](http://www.html5rocks.com/en/mobile/workingoffthegrid.html)
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
+* [Twitter Flight](http://twitter.github.com/flight/)
 * [AppCache](https://developer.mozilla.org/en/Using_Application_Cache)
 * [Online detection](https://developer.mozilla.org/en/DOM/window.navigator.onLine)
 * [RequireJS API](http://requirejs.org/docs/api.html)
@@ -191,13 +201,9 @@ for the built files and modify the built `index.html` to reference it.
 
 ## Next Steps
 
-* Figure out a way to easily create manifests for the Mozilla Web Apps and
-Chrome Store initiatives.
-* Work out an IndexedDB shim layer so that a uniform local data storage
-mechanism can be used.
-* Suggestions from you.
+* Convert AppCache and network status representation into Flight-compatible UI components.
 
 ## Feedback
 
 To leave feedback, open an issue in the
-[Issues section](https://github.com/volojs/create-responsive-template/issues).
+[Issues section](https://github.com/notatestuser/create-responsive-flight-template/issues).

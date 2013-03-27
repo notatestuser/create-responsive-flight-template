@@ -1,14 +1,17 @@
 # Responsive+Flight+AppCache
 
-If you're looking to take Flight out for a test run, this template will allow you to get up-and-running in seconds. It's especially useful for AppCache applications that work on multiple devices, which is where this particular stack should shine. It's also good for plain ole web apps.
-
 This project template sets up a responsive webapp that uses Twitter's
-[Bootstrap](http://twitter.github.com/bootstrap) and
-[Flight](http://twitter.github.com/flight).
+[Flight](http://twitter.github.com/flight) and 
+[Bootstrap](http://twitter.github.com/bootstrap).
 
-These libraries are not bundled, but will be downloaded and AMDified when you first
-create a project. [RequireJS](http://requirejs.org) is used to manage client-side
-library dependencies.
+If you're looking to take Flight out for a test run, this template will allow you to 
+get up-and-running in seconds. It's especially useful for AppCache applications that 
+work on multiple devices, which is where this particular stack should shine. 
+It's also good for plain ole web apps.
+
+These libraries are not bundled, but will be downloaded and converted into an AMD 
+format when you first create a project. 
+[RequireJS](http://requirejs.org) is used to manage client-side library dependencies.
 
 ## Usage
 
@@ -40,7 +43,7 @@ The built, AppCache-enabled project will be in `myproject/www-built`.
 volo grabbed this project template from GitHub, then:
 
 * Fetched Twitter Bootstrap code from GitHub
-* Fetched Twitter Flight code from GitHub
+* Fetched Twitter Flight code from GitHub (and its es5-shim dependency)
 * Fetched jQuery
 
 It generated the responsive CSS files from Bootstrap's LESS files, and then

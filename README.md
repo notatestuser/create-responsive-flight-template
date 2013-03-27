@@ -1,6 +1,6 @@
 # Responsive+Flight+AppCache
 
-If you're looking to take Flight out for a test run, this template will allow you to get up-and-running in seconds. It's especially useful for AppCache applications that work on multiple devices, which is where this particular stack should shine. It's also good for a plain ole web apps.
+If you're looking to take Flight out for a test run, this template will allow you to get up-and-running in seconds. It's especially useful for AppCache applications that work on multiple devices, which is where this particular stack should shine. It's also good for plain ole web apps.
 
 This project template sets up a responsive webapp that uses Twitter's
 [Bootstrap](http://twitter.github.com/bootstrap) and

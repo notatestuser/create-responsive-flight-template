@@ -3,19 +3,22 @@
 define(
   [
     'jquery',
-    './components/button'
+    'es5-shim'
   ],
 
-  function ($, Button) {
+  function ($) {
     'use strict';
 
     // Wait for the DOM to be ready before showing the network and appCache
     // state.
     $(function () {
 
-      // Attach our button components.
-      Button.attachTo('.button-box', {
-        buttonName: 'me'
+      // Import our Button component class.
+      require(['app/components/button'], function (Button) {
+        // Attach our button components to the DOM.
+        Button.attachTo('.button-box', {
+          buttonName: 'me'
+        });
       });
 
     });

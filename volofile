@@ -142,7 +142,7 @@ module.exports = {
             v.command('add', 'jquery/jquery/~1.9.0', 'jquery')
                 .then(function () {
                     //Grab es5-shim
-                    return v.command('add', 'kriskowal/es5-shim/~2.0.0', 'jquery');
+                    return v.command('add', 'kriskowal/es5-shim/~2.0.0', 'es5-shim');
                 })
                 .then(function () {
                     //Grab Twitter Bootstrap
